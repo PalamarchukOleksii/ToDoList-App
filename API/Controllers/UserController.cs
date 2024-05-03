@@ -4,8 +4,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using API.Dtos.User;
+using API.Extensions;
 using API.Interfaces;
+using API.Mapper;
 using API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -72,7 +75,7 @@ namespace API.Contollers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Create([FromBody] UserRegisterDto userDto)
+        public async Task<IActionResult> Register([FromBody] UserRegisterDto userDto)
         {
             try
             {
@@ -119,6 +122,43 @@ namespace API.Contollers
             {
                 return BadRequest(e.Message);
             }
+        }
+
+        [HttpPut("update")]
+        [Authorize]
+        public async Task<IActionResult> Update([FromBody] UserUpdateDto userDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            string? username = User.GetUsername();
+            if (username == null)
+            {
+                return NotFound();
+            }
+
+            User? user = await UserManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            string? tempUsername = user.UserName;
+            string? tempEmail = user.Email;
+
+            user.UserName = userDto.Username;
+            user.Email = userDto.Email;
+            IdentityResult result = await UserManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                user.UserName = tempUsername;
+                user.Email = tempEmail;
+                return BadRequest();
+            }
+
+            return Ok(user.ToUserDto());
         }
     }
 }
