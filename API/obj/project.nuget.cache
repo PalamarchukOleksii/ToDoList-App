@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PN9ddUGL8mjBPjNe8WqfjHAg3p1mHQBvZ4nI2KZ1/KQxpNxYKsMvceZv8OoVX9O8yySkwW2gnn7KgEWR+DKGeQ==",
+  "dgSpecHash": "bNxrayyljViGaHcyAdv0/+Rp2GMb3+KwtdStlzaXYW2U4emlUtXgzFVTgGC/hqN18wV/nnDQr4xbVxv8qyq/Uw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Oleksa\\Desktop\\ToDoListApp\\api\\API.csproj",
+  "projectFilePath": "C:\\Users\\Oleksa\\Desktop\\ToDoListApp\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Oleksa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Oleksa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

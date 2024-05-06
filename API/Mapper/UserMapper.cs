@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.Dtos.User;
 using API.Models;
 
@@ -14,7 +10,8 @@ namespace API.Mapper
             return new UserDto
             {
                 Username = user.UserName,
-                Email = user.Email
+                Email = user.Email,
+                Tasks = user.Tasks.Select(c => c.ToTaskDto()).ToList()
             };
         }
     }
