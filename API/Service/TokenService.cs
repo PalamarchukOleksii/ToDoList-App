@@ -1,13 +1,9 @@
 using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.Interfaces;
 using API.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
-using Azure.Core;
 
 namespace API.Service
 {

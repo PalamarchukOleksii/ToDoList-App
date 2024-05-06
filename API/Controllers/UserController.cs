@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using API.Dtos.User;
 using API.Extensions;
 using API.Interfaces;
 using API.Mapper;
 using API.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,11 +18,13 @@ namespace API.Contollers
         private readonly UserManager<User> UserManager;
         private readonly ITokenService TokenService;
         private readonly SignInManager<User> SignInManager;
-        public UserController(UserManager<User> userManager, ITokenService tokenService, SignInManager<User> signInManager)
+        private readonly IUserRepository UserRepository;
+        public UserController(UserManager<User> userManager, ITokenService tokenService, SignInManager<User> signInManager, IUserRepository userRepository)
         {
             UserManager = userManager;
             TokenService = tokenService;
             SignInManager = signInManager;
+            UserRepository = userRepository;
         }
 
         [HttpPost("login")]
@@ -63,6 +61,7 @@ namespace API.Contollers
 
                 return Ok(new NewUserDto
                 {
+                    Id = user.Id,
                     Username = user.UserName,
                     Email = user.Email,
                     Token = TokenService.CreateToken(user)
@@ -113,6 +112,7 @@ namespace API.Contollers
 
                 return Ok(new NewUserDto
                 {
+                    Id = user.Id,
                     Username = user.UserName,
                     Email = user.Email,
                     Token = TokenService.CreateToken(user)
@@ -124,9 +124,9 @@ namespace API.Contollers
             }
         }
 
-        [HttpPut("update")]
+        [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Update([FromBody] UserUpdateDto userDto)
+        public async Task<IActionResult> GetUser()
         {
             if (!ModelState.IsValid)
             {
@@ -139,23 +139,10 @@ namespace API.Contollers
                 return NotFound();
             }
 
-            User? user = await UserManager.FindByNameAsync(username);
+            User? user = await UserRepository.GetUserAsync(username);
             if (user == null)
             {
                 return NotFound();
-            }
-
-            string? tempUsername = user.UserName;
-            string? tempEmail = user.Email;
-
-            user.UserName = userDto.Username;
-            user.Email = userDto.Email;
-            IdentityResult result = await UserManager.UpdateAsync(user);
-            if (!result.Succeeded)
-            {
-                user.UserName = tempUsername;
-                user.Email = tempEmail;
-                return BadRequest();
             }
 
             return Ok(user.ToUserDto());

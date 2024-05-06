@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using API.Dtos.UserTask;
 
 namespace API.Dtos.User
 {
@@ -9,5 +6,6 @@ namespace API.Dtos.User
     {
         public string? Username { get; set; }
         public string? Email { get; set; }
+        public List<UserTaskDto> Tasks { get; set; } = new List<UserTaskDto>();
     }
 }
