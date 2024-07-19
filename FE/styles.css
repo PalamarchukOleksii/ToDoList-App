@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #444;
+    text-align: center;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    color: #555;
+}
+
+input[type="text"], 
+input[type="date"], 
+input[type="email"], 
+input[type="password"], 
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Button Groups */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Forms */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Link Text */
+.link-text {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link-text a:hover {
+    text-decoration: underline;
+}
+
+/* Task List */
+#task-list {
+    margin-top: 20px;
+}
+
+#tasks {
+    border-top: 1px solid #ddd;
+}
+
+.task-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-info {
+    margin-bottom: 10px;
+}
+
+.task-info p {
+    margin: 5px 0;
+}
+
+.task-actions button {
+    margin-right: 10px;
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

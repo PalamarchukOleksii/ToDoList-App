@@ -50,13 +50,13 @@ namespace API.Contollers
                 User? user = await UserManager.Users.FirstOrDefaultAsync(x => x.UserName == userDto.Username.ToLower());
                 if (user == null)
                 {
-                    return Unauthorized("Invalid username!");
+                    return Unauthorized("User with this name do not exist!");
                 }
 
                 var result = await SignInManager.CheckPasswordSignInAsync(user, userDto.Password, false);
                 if (!result.Succeeded)
                 {
-                    return Unauthorized("Username not found and/or password incorrect");
+                    return Unauthorized("Password incorrect!");
                 }
 
                 return Ok(new NewUserDto
@@ -126,7 +126,7 @@ namespace API.Contollers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetUser()
+        public async Task<IActionResult> GetCurrentUser()
         {
             if (!ModelState.IsValid)
             {

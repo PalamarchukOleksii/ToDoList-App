@@ -4697,11 +4697,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Oleksa\\Desktop\\ToDoListApp\\API\\API.csproj",
+      "projectUniqueName": "D:\\vs-code\\todolistapp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Oleksa\\Desktop\\ToDoListApp\\API\\API.csproj",
+      "projectPath": "D:\\vs-code\\todolistapp\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Oleksa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Oleksa\\Desktop\\ToDoListApp\\API\\obj\\",
+      "outputPath": "D:\\vs-code\\todolistapp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Oleksa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4724,6 +4724,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4798,7 +4803,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

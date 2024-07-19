@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Tasks</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <section id="buttons">
+            <h1>Menu</h1>
+            <div class="button-group">
+                <button id="logout-btn">Logout</button>
+                <button id="show-create-form-btn">Create New Task</button>
+            </div>
+        </section>
+
+        <section id="create" class="hidden">
+            <form id="creating-form" class="form">
+                <h1>Creating Task</h1>
+                <label for="short-info">Short Information</label>
+                <input type="text" id="short-info" name="short-info" maxlength="50" required>
+
+                <label for="full-info">Full Information</label>
+                <textarea id="full-info" name="full-info" cols="50" rows="10" required></textarea>
+
+                <label for="end-datetime">End Datetime</label>
+                <input type="date" id="end-datetime" name="end-datetime" required>
+
+                <div class="button-group">
+                    <button type="submit" id="create-task-btn">Create Task</button>
+                    <button type="button" id="cancel-create-btn">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="edit" class="hidden">
+            <form id="editing-form" class="form">
+                <h1>Editing Task</h1>
+                <input type="hidden" id="edit-task-id" name="edit-task-id">
+                
+                <label for="edit-short-info">Short Information</label>
+                <input type="text" id="edit-short-info" name="edit-short-info" maxlength="50" required>
+
+                <label for="edit-full-info">Full Information</label>
+                <textarea id="edit-full-info" name="edit-full-info" cols="50" rows="10" required></textarea>
+
+                <label for="edit-is-done">Is Done</label>
+                <input type="checkbox" id="edit-is-done" name="edit-is-done">
+
+                <label for="edit-start-datetime">Start Datetime</label>
+                <input type="date" id="edit-start-datetime" name="edit-start-datetime" disabled>
+
+                <label for="edit-end-datetime">End Datetime</label>
+                <input type="date" id="edit-end-datetime" name="edit-end-datetime" required>
+
+                <div class="button-group">
+                    <button id="edit-task-btn" type="submit">Edit Task</button>
+                    <button type="button" id="cancel-edit-btn">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="task-list">
+            <h1>Task List</h1>
+            <div id="tasks">
+                <!-- Task items will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>
